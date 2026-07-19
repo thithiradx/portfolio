@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { portfolioData } from "@/data/portfolio-data";
 
 const skillIcons: Record<string, React.ReactNode> = {
@@ -27,34 +26,6 @@ const skillIcons: Record<string, React.ReactNode> = {
 };
 
 export default function Skills() {
-  const skillBarsRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const bars = entry.target.querySelectorAll(".skill-bar-fill");
-            bars.forEach((bar) => {
-              const el = bar as HTMLElement;
-              const level = el.getAttribute("data-level");
-              if (level) {
-                el.style.width = `${level}%`;
-              }
-            });
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    if (skillBarsRef.current) {
-      observer.observe(skillBarsRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section className="section" id="skills">
       <div className="container">
@@ -66,7 +37,7 @@ export default function Skills() {
           </p>
         </div>
 
-        <div className="skills-grid reveal" ref={skillBarsRef}>
+        <div className="skills-grid reveal">
           {portfolioData.skills.map((category, index) => (
             <div
               key={index}
@@ -80,16 +51,7 @@ export default function Skills() {
               <div className="skill-list">
                 {category.items.map((skill, skillIndex) => (
                   <div key={skillIndex} className="skill-item">
-                    <div className="skill-info">
-                      <span className="skill-name">{skill.name}</span>
-                      <span className="skill-percentage">{skill.level}%</span>
-                    </div>
-                    <div className="skill-bar">
-                      <div
-                        className="skill-bar-fill"
-                        data-level={skill.level}
-                      />
-                    </div>
+                    <span className="skill-name">{skill.name}</span>
                   </div>
                 ))}
               </div>
