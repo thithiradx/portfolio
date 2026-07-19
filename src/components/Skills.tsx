@@ -3,6 +3,29 @@
 import { useEffect, useRef } from "react";
 import { portfolioData } from "@/data/portfolio-data";
 
+const skillIcons: Record<string, React.ReactNode> = {
+  mobile: (
+    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
+    </svg>
+  ),
+  frontend: (
+    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+    </svg>
+  ),
+  backend: (
+    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>
+    </svg>
+  ),
+  database: (
+    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+    </svg>
+  ),
+};
+
 export default function Skills() {
   const skillBarsRef = useRef<HTMLDivElement>(null);
 
@@ -50,7 +73,9 @@ export default function Skills() {
               className="skill-category glass-card"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="skill-category-icon">{category.icon}</div>
+              <div className="skill-category-icon">
+                {skillIcons[category.icon]}
+              </div>
               <h3>{category.category}</h3>
               <div className="skill-list">
                 {category.items.map((skill, skillIndex) => (

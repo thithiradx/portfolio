@@ -27,7 +27,7 @@ export const portfolioData = {
   skills: [
     {
       category: "Mobile Development",
-      icon: "📱",
+      icon: "mobile",
       items: [
         { name: "React Native", level: 78 },
         { name: "Expo", level: 75 },
@@ -37,7 +37,7 @@ export const portfolioData = {
     },
     {
       category: "Frontend Development",
-      icon: "🎨",
+      icon: "frontend",
       items: [
         { name: "React", level: 82 },
         { name: "JavaScript", level: 85 },
@@ -47,7 +47,7 @@ export const portfolioData = {
     },
     {
       category: "Backend Development",
-      icon: "⚙️",
+      icon: "backend",
       items: [
         { name: "Node.js", level: 78 },
         { name: "Express.js", level: 78 },
@@ -57,7 +57,7 @@ export const portfolioData = {
     },
     {
       category: "Databases & Tools",
-      icon: "🗄️",
+      icon: "database",
       items: [
         { name: "MongoDB", level: 80 },
         { name: "MySQL", level: 72 },
@@ -145,7 +145,7 @@ export const portfolioData = {
       degree: "Bachelor of Information and Communication Technology (Hons)",
       school: "University of Vavuniya",
       year: "Expected Graduation: 2027",
-      icon: "🎓",
+      icon: "degree",
       details:
         "Coursework spanning software engineering, databases, and web/mobile development, alongside independent full-stack projects to put it into practice.",
     },
@@ -153,7 +153,7 @@ export const portfolioData = {
       degree: "G.C.E. Advanced Level - Engineering Technology",
       school: "Taxila Central College, Horana",
       year: "2019 - 2021",
-      icon: "📚",
+      icon: "school",
       details:
         "Studied the Engineering Technology stream, building the technical and analytical foundation that led into ICT at university.",
     },
